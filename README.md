@@ -97,3 +97,18 @@ Progetto composto da un server HTTP e un client per il monitoraggio e la gestion
 **5. SERVER:**
   - Il server riceve il file e lo salva nella directory uploads.
   - Il file viene rinominato con il prefisso uploaded_ (ad esempio: uploaded_log.txt).
+
+## Note tecniche
+**1. Ambiente di Esecuzione:**
+  - Il client è progettato per funzionare esclusivamente su Windows, in quanto utilizza API di sistema specifiche come SetWindowsHookEx e SetWinEventHook per catturare eventi di tastiera e cambi di finestra. La gestione della clipboard utilizza funzioni come OpenClipboard e GetClipboardData, che sono anch'esse specifiche di Windows.
+    
+**2. Interazione con il Server:**
+  - Il client comunica con il server tramite richieste HTTP. L'URL del server è configurabile e, per impostazione predefinita, punta a http://localhost:8080.
+  - Solo se vengono detectati dati sensibili nel file log.txt il file viene inviato al server.
+  - L'invio avviene tramite richieste POST multipart.
+
+**3. Debug:**
+  - Tutti i messaggi di errore e log del client e del server vengono stampati sulla console per facilitare il debug (è possibile e consigliato toglierli o commentarli).
+
+# Stato del progetto
+Questo progetto è in fase di sviluppo e di debug. Verranno in futuro aggiornamenti per migliorare funzionalità, prestazioni e stabilità. Attualmente sto lavorando su alcuni miglioramenti.
